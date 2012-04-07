@@ -18,8 +18,7 @@
         }
     ],
     "require": {
-        "php": ">=5.3.3",
-        "composer/composer": "dev-master"
+        "php": ">=5.3.3"
     },
     "autoload": {
         "psr-0": {
@@ -28,5 +27,5 @@
         "classmap": [
             "./"
         ]
-    },
+    }
 }
