@@ -1,0 +1,32 @@
+{
+    "name": "ocramius/OcraComposer",
+    "description": "Zend Framework 2 Module that provides Composer based autoloading for Zend Skeleton Application based installations",
+    "type": "library",
+    "keywords": [
+        "doctrine",
+        "module",
+        "zf2",
+        "composer",
+        "autoload"
+    ],
+    "homepage": "https://github.com/Ocramius/OcraComposer",
+    "authors": [
+        {
+            "name": "Marco Pivetta",
+            "email": "ocramius@gmail.com",
+            "homepage": "http://marco-pivetta.com/"
+        }
+    ],
+    "require": {
+        "php": ">=5.3.3",
+        "composer/composer": "dev-master"
+    },
+    "autoload": {
+        "psr-0": {
+            "DoctrineModule": "src/"
+        },
+        "classmap": [
+            "./"
+        ]
+    },
+}
