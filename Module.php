@@ -21,7 +21,6 @@ class Module
     public function modulesLoaded($e)
     {
         $config = $e->getConfigListener()->getMergedConfig();
-
         $autoloadFile = $config->composer->installation_directory . '/' . $config->composer->autoload_file;
 
         if (!@include $autoloadFile) {
@@ -42,7 +41,15 @@ class Module
 
     protected function downloadComposerInstaller($config)
     {
-        if(!is_writable(getcwd())) {
+        if (!$config->composer->automatically_download_installer) {
+            throw new RuntimeException(
+                'Could not locate "'
+                . $config->composer->installation_directory . '/' . $config->composer->autoload_file . "\", "
+                . "you probably didn't install all required project dependencies through composer.\n"
+            );
+        }
+
+        if (!is_writable(getcwd())) {
             throw new RuntimeException(
                 '"' . realpath(getcwd()) . '" is not writeable, could not download composer installer to it'
             );
@@ -55,13 +62,13 @@ class Module
             );
         }
 
-        if(!@file_put_contents($config->composer->installer_filename, $installer)) {
+        if (!@file_put_contents($config->composer->installer_filename, $installer)) {
             throw new UnexpectedValueException(
                 'Could not write composer installer to "' . $config->composer->installer_filename . '"'
             );
         }
 
-        if(!$installer = realpath($config->composer->installer_filename)) {
+        if (!$installer = realpath($config->composer->installer_filename)) {
             throw new UnexpectedValueException(
                 'Could not find downloaded composer installer "' . $config->composer->installer_filename . '"'
             );

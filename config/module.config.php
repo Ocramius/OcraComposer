@@ -9,5 +9,7 @@ return array(
         'autoload_file' => 'autoload.php',
         // File name where the composer installer will be placed if composer wasn't installed
         'installer_filename' => 'install-composer.php',
+        // Download the composer installer automatically if composer autoloader wasn't detected
+        'automatically_download_installer' => true,
     )
 );
