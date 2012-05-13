@@ -1,7 +1,7 @@
 {
     "name": "ocramius/OcraComposer",
     "description": "Zend Framework 2 Module that provides Composer based autoloading for Zend Skeleton Application based installations",
-    "type": "library",
+    "type": "zendframework-module-autoloader",
     "keywords": [
         "doctrine",
         "module",
@@ -18,7 +18,8 @@
         }
     ],
     "require": {
-        "php": ">=5.3.3"
+        "php": ">=5.3.3",
+        "ocramius/OcraComposerInstaller": "dev-master"
     },
     "autoload": {
         "classmap": [
