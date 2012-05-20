@@ -4,7 +4,7 @@ namespace OcraComposer;
 
 use UnexpectedValueException;
 use RuntimeException;
-use Zend\Module\Manager;
+use Zend\ModuleManager\ModuleManagerInterface;
 
 class Module
 {
@@ -14,10 +14,10 @@ class Module
     protected $config = null;
 
     /**
-     * @param \Zend\Module\Manager $moduleManager
-     * @throws \RuntimeException
+     * @param ModuleManagerInterface $moduleManager
+     * @throws RuntimeException
      */
-    public function init(Manager $moduleManager)
+    public function init(ModuleManagerInterface $moduleManager)
     {
         $config = $this->getConfig();
 
