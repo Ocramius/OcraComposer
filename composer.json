@@ -2,6 +2,7 @@
     "name": "ocramius/OcraComposer",
     "description": "Zend Framework 2 Module that provides Composer based autoloading for Zend Skeleton Application based installations",
     "type": "zendframework-module-autoloader",
+    "license": "MIT",
     "keywords": [
         "doctrine",
         "module",
